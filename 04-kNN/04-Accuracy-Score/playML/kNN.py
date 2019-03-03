@@ -22,7 +22,7 @@ class KNNClassifier:
         self._X_train = X_train
         self._y_train = y_train
         return self
-
+#进行预测
     def predict(self, X_predict):
         """给定待预测数据集X_predict，返回表示X_predict的结果向量"""
         assert self._X_train is not None and self._y_train is not None, \
@@ -46,7 +46,7 @@ class KNNClassifier:
         votes = Counter(topK_y)
 
         return votes.most_common(1)[0][0]
-
+    #直接返回准确度
     def score(self, X_test, y_test):
         """根据测试数据集 X_test 和 y_test 确定当前模型的准确度"""
 

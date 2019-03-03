@@ -22,7 +22,8 @@ class KNNClassifier:
         self._X_train = X_train
         self._y_train = y_train
         return self
-
+    
+    #传入待预测数据集X_predict
     def predict(self, X_predict):
         """给定待预测数据集X_predict，返回表示X_predict的结果向量"""
         assert self._X_train is not None and self._y_train is not None, \
