@@ -4,15 +4,16 @@ import numpy as np
 class StandardScaler:
 
     def __init__(self):
-        self.mean_ = None
-        self.scale_ = None
+        self.mean_ = None # 均值 方便用户查询 这个变量 用下划线
+        self.scale_ = None # 方差
 
     def fit(self, X):
         """根据训练数据集X获得数据的均值和方差"""
-        assert X.ndim == 2, "The dimension of X must be 2"
-
-        self.mean_ = np.array([np.mean(X[:,i]) for i in range(X.shape[1])])
-        self.scale_ = np.array([np.std(X[:,i]) for i in range(X.shape[1])])
+        assert X.ndim == 2, "The dimension of X must be 2" #只处理二维
+                            #对于 x的第 i 列求均值 我们有多少个列(多少个特征我们循环就执行多少次)         
+        self.mean_ = np.array([np.mean(X[:,i]) for i in range(X.shape[1])])#均值
+                            #
+        self.scale_ = np.array([np.std(X[:,i]) for i in range(X.shape[1])]) # 方差
 
         return self
 
