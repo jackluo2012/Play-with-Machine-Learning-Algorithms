@@ -24,8 +24,9 @@ class StandardScaler:
                "must fit before transform!"
         assert X.shape[1] == len(self.mean_), \
                "the feature number of X must be equal to mean_ and std_"
-
+        #赋值 为空,但是它的 shape 等于值进来的 shape
         resX = np.empty(shape=X.shape, dtype=float)
         for col in range(X.shape[1]):
+            #对于每一列对就的 x 的值,就是原来的这一列的 x 的这一列, 减去 原始的均值 ,除以 这一列对应的标准差
             resX[:,col] = (X[:,col] - self.mean_[col]) / self.scale_[col]
         return resX

@@ -59,10 +59,12 @@ class SimpleLinearRegression2:
             "Simple Linear Regressor can only solve single feature training data."
         assert len(x_train) == len(y_train), \
             "the size of x_train must be equal to the size of y_train"
-
-        x_mean = np.mean(x_train)
-        y_mean = np.mean(y_train)
-
+        #进行向量化预测的方式
+        x_mean = np.mean(x_train) #得到x 的 均值
+        y_mean = np.mean(y_train) #得到y 的 均值
+        #用点乘的方式代替了 for 循环
+        #      将 (x 的值- x 的均值) * (y 的值 - 减去 y 的均值) 得到分子部分  x的值-x的均值,点乘 x的值 - x 的均值
+        
         self.a_ = (x_train - x_mean).dot(y_train - y_mean) / (x_train - x_mean).dot(x_train - x_mean)
         self.b_ = y_mean - self.a_ * x_mean
 
