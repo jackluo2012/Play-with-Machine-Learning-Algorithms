@@ -60,7 +60,7 @@ class LinearRegression:
         self.coef_ = self._theta[1:]
 
         return self
-
+                                # 指定随机次数   ,      
     def fit_sgd(self, X_train, y_train, n_iters=50, t0=5, t1=50):
         """根据训练数据集X_train, y_train, 使用梯度下降法训练Linear Regression模型"""
         assert X_train.shape[0] == y_train.shape[0], \
