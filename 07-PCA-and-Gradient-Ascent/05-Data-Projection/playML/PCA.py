@@ -6,9 +6,12 @@ class PCA:
     def __init__(self, n_components):
         """初始化PCA"""
         assert n_components >= 1, "n_components must be valid"
+        #用户传来的有多少个主成份
         self.n_components = n_components
+        #每个一个主成份是谁
         self.components_ = None
 
+    # 传来一个 eta 梯度上升 ,以及最大值    
     def fit(self, X, eta=0.01, n_iters=1e4):
         """获得数据集X的前n个主成分"""
         assert self.n_components <= X.shape[1], \
